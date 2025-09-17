@@ -21,7 +21,7 @@ const Carousel: React.FC<CarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const spacing = 10;
-  const maxIndex = images.length - frameSize;
+  const maxIndex = Math.max(images.length - frameSize, 0);
 
   return (
     <div className="Carousel">
@@ -63,7 +63,7 @@ const Carousel: React.FC<CarouselProps> = ({
         disabled={currentIndex === 0 && infinite === false}
         onClick={() => {
           if (!infinite && currentIndex > 0) {
-            setCurrentIndex(currentIndex - step);
+            setCurrentIndex(prev => Math.max(prev - step, 0));
           } else if (infinite) {
             setCurrentIndex(
               (currentIndex - step + images.length) % images.length,
@@ -83,7 +83,7 @@ const Carousel: React.FC<CarouselProps> = ({
         data-cy="next"
         onClick={() => {
           if (!infinite && currentIndex + frameSize < images.length) {
-            setCurrentIndex(Math.min(currentIndex + step, maxIndex));
+            setCurrentIndex(prev => Math.min(prev + step, maxIndex));
           } else if (infinite) {
             setCurrentIndex((currentIndex + step) % images.length);
           }

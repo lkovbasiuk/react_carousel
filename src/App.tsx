@@ -4,6 +4,11 @@ import Carousel from './components/Carousel';
 
 interface State {
   images: string[];
+  step: number;
+  frameSize: number;
+  itemWidth: number;
+  animationDuration: number;
+  infinite: boolean;
 }
 
 class App extends React.Component<{}, State> {
@@ -28,44 +33,47 @@ class App extends React.Component<{}, State> {
   };
 
   render() {
-    const { images, step, frameSize, itemWidth, animationDuration, infinite } =
-      this.state;
+    const { images } = this.state;
 
     return (
       <div className="App">
         {/* eslint-disable-next-line */}
         <h1 data-cy="title">Carousel with {images.length} images</h1>
 
-        <label>
+        <label htmlFor="stepId">
           Step:
           <input
+            id="stepId"
             type="number"
             value={step}
             onChange={e => this.setState({ step: +e.target.value })}
           />
         </label>
 
-        <label>
+        <label htmlFor="frameId">
           Frame Size:
           <input
+            id="frameId"
             type="number"
             value={frameSize}
             onChange={e => this.setState({ frameSize: +e.target.value })}
           />
         </label>
 
-        <label>
+        <label htmlFor="itemId">
           Item Width:
           <input
+            id="itenId"
             type="number"
             value={itemWidth}
             onChange={e => this.setState({ itemWidth: +e.target.value })}
           />
         </label>
 
-        <label>
+        <label htmlFor="animationId">
           Animation Duration:
           <input
+            id="animatinId"
             type="number"
             value={animationDuration}
             onChange={e =>
@@ -74,9 +82,10 @@ class App extends React.Component<{}, State> {
           />
         </label>
 
-        <label>
+        <label htmlFor="infiniteId">
           Infinite:
           <input
+            id="infiniteId"
             type="checkbox"
             checked={infinite}
             onChange={e => this.setState({ infinite: e.target.checked })}
