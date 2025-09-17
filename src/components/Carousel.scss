@@ -1,1 +1,51 @@
-// style go here
+.Carousel__frame {
+  width: var(--frame-width);
+  overflow: hidden;
+}
+
+.Carousel__list {
+  width: var(--list-width);
+  display: flex;
+  transition: transform 0.5s;
+}
+
+.Carousel__list li {
+  margin-right: 10px;
+}
+
+.previous {
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 1;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+.next {
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 20px;
+  z-index: 1;
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
