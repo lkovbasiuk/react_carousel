@@ -32,8 +32,13 @@ class App extends React.Component<{}, State> {
     infinite: false,
   };
 
+  componentDidMount() {
+    document.title = 'Carousel';
+  }
+
   render() {
-    const { images } = this.state;
+    const { images, step, frameSize, itemWidth, animationDuration, infinite } =
+      this.state;
 
     return (
       <div className="App">
@@ -63,7 +68,7 @@ class App extends React.Component<{}, State> {
         <label htmlFor="itemId">
           Item Width:
           <input
-            id="itenId"
+            id="itemId"
             type="number"
             value={itemWidth}
             onChange={e => this.setState({ itemWidth: +e.target.value })}
@@ -73,7 +78,7 @@ class App extends React.Component<{}, State> {
         <label htmlFor="animationId">
           Animation Duration:
           <input
-            id="animatinId"
+            id="animationId"
             type="number"
             value={animationDuration}
             onChange={e =>

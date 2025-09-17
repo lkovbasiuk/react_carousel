@@ -1,3 +1,7 @@
+.Carousel {
+  position: relative;
+}
+
 .Carousel__frame {
   width: var(--frame-width);
   overflow: hidden;
@@ -6,7 +10,6 @@
 .Carousel__list {
   width: var(--list-width);
   display: flex;
-  transition: transform 0.5s;
 }
 
 .Carousel__list li {
@@ -19,6 +22,7 @@
 }
 
 .previous {
+  position: absolute;
   left: -40px;
   top: 50%;
   transform: translateY(-50%);
@@ -37,6 +41,7 @@
 }
 
 .next {
+  position: absolute;
   right: -40px;
   top: 50%;
   transform: translateY(-50%);
